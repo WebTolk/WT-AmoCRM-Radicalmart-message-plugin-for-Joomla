@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="header" label="PLG_RADICALMART_MESSAGE_TELEGRAM_PARAMS_FIELDSET">
+		<field name="amocrmleadlink"
+               type="amocrmleadlink"
+               addfieldprefix="Joomla\Plugin\RadicalMart\Wtamocrmradicalmart\Field"
+			   label="PLG_RADICALMART_MESSAGE_TELEGRAM_PARAMS_TOKEN"/>
+	</fieldset>
+</form>
