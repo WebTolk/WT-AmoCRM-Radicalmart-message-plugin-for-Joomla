@@ -80,4 +80,5 @@
             https://web-tolk.ru/component/swjprojects/jupdate?element=wtamocrmradicalmart
         </server>
     </updateservers>
+    <changelogurl>https://web-tolk.ru/jchangelog?element=wtamocrmradicalmart</changelogurl>
 </extension>
