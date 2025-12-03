@@ -3,7 +3,7 @@
  * @package       WT AmoCRM - RadicalMart
  * @author     Sergey Tolkachyov
  * @copyright     Copyright (C) Sergey Tolkachyov, 2025. All rights reserved.
- * @version       1.0.0
+ * @version       1.0.2
  * @license       GNU General Public License version 3 or later. Only for *.php files!
  * @link       https://web-tolk.ru
  */
@@ -96,7 +96,7 @@ return new class () implements ServiceProviderInterface {
                  */
                 public function install(InstallerAdapter $adapter): bool
                 {
-                    if (!ExtensionHelper::getExtensionRecord('Webtolk/Amocrm', 'library')) {
+                    if (!$extension = ExtensionHelper::getExtensionRecord('Webtolk/Amocrm', 'library')) {
                         $this->app->enqueueMessage(
                             Text::_('PLG_WTAMOCRMRADICALMART_ERROR_NO_WT_AMOCRM_LIBRARY_INSTALLED'),
                             'error'
@@ -105,6 +105,14 @@ return new class () implements ServiceProviderInterface {
                         return false;
                     }
 
+	                $version = (new \Joomla\Registry\Registry($extension->manifest_cache))->get('version','');
+	                if (!version_compare($version, '1.3.0', '>=')) {
+		                $this->app->enqueueMessage(
+			                Text::_('PLG_WTAMOCRMRADIALMART_ERROR_AMOCRM_LIBRARY_INCORRECT_VERSION'),
+			                'error'
+		                );
+		                return false;
+	                }
 //                    $this->enablePlugin($adapter);
 
                     return true;

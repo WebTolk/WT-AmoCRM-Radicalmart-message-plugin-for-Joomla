@@ -2,12 +2,12 @@
 <extension type="plugin" group="radicalmart" method="upgrade">
     <name>PLG_WTAMOCRMRADICALMART</name>
     <author>Sergey Tolkachyov</author>
-    <creationDate>26.11.2025</creationDate>
+    <creationDate>03.12.2025</creationDate>
     <copyright>Copyright (c) 2025 Sergey Tolkachyov. All rights reserved.</copyright>
     <license>https://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
     <authorEmail>info@web-tolk.ru</authorEmail>
     <authorUrl>https://web-tolk.ru</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <description>PLG_WTAMOCRMRADICALMART_DESC</description>
     <namespace path="src">Joomla\Plugin\RadicalMart\Wtamocrmradicalmart</namespace>
     <scriptfile>script.php</scriptfile>
@@ -21,7 +21,23 @@
         <folder>forms</folder>
         <folder>services</folder>
         <folder plugin="wtamocrmradicalmart">src</folder>
+		<folder>sql</folder>
     </files>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
     <config>
         <fields name="params">
             <fieldset name="basic">
